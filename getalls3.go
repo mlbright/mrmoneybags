@@ -27,10 +27,14 @@ func main() {
 		for k, _ := range *m {
 			data, err := b.Get(k)
 			if err != nil {
-				log.Fatal(err)
+				log.Println(err)
+				continue
 			}
 			if err := ioutil.WriteFile(k, data, 0644); err != nil {
 				log.Fatal(err)
+			}
+			if err := b.Del(k); err != nil {
+				log.Println(err)
 			}
 		}
 	}
