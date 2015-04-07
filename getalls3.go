@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+
 	auth, err := aws.EnvAuth()
 	if err != nil {
 		log.Fatal(err)
@@ -38,4 +39,5 @@ func main() {
 			}
 		}
 	}
+
 }
